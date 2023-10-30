@@ -1,12 +1,10 @@
-const items = ['|   ', '/   ', '-   ', '\\   ', '|   ', '/   ', '-   ', '\\   ', '|   \n'];
+const items = ['|   ', '/   ', '-   ', '\\   '];
 const spinner = function() {
   let index = 0;
   const nextSpinItem = function() {
-    if (index < items.length) {
       process.stdout.write(`\r${items[index]}`);
-      index++;
+      index = (index + 1) % items.length
       setTimeout(nextSpinItem, 200);
-    }
   };
   nextSpinItem();
 };
